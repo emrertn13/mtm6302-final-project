@@ -1,0 +1,235 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* Custom CSS */
+button,
+select {
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 5%;
+    border: 1px solid darkgray;
+    background-color: rgb(243, 241, 241);
+    color: black;
+    font-size: 1rem;
+}
+button:hover,
+select:hover {
+    border: 1px solid darkgray;
+    background-color: rgb(24, 24, 24);
+    color: rgb(216, 213, 213);
+    font-size: 1rem;
+}
+
+/* -position */
+#background-img {
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* -template */
+/* --setting menu  */
+#settings-button {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 5;
+}
+#settings-display {
+    background-color: rgb(65, 65, 65);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    padding: 1rem;
+    padding-right: 3rem;
+    height: 100%;
+    display: none;
+}
+#settings-display h1 {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+#settings-display #settings-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+select {
+    width: fit-content;
+    padding: 0.2rem;
+    margin-left: 1rem;
+    border-radius: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#flex-look {
+    display: flex;
+    width: fit-content;
+    margin-left: 0;
+}
+#flex-look input {
+    margin: 0;
+    margin-right: 0.2rem;
+    align-self: center;
+}
+#flex-look label {
+    margin-right: 1.5rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+}
+#divider1 {
+    display: inline-block;
+    width: 120%;
+    height: 0.5px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+}
+#color-settings {
+    display: flex;
+}
+#color-settings h1 {
+    align-self: center;
+    vertical-align: center;
+    margin-bottom: 0;
+}
+
+/* --clock display  */
+#time-display {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    top: 10rem;
+    margin: 0 auto;
+}
+#title-text {
+    font-size: 2rem;
+    width: fit-content;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+#time-content {
+    font-size: 5rem;
+    width: fit-content;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+/* --additional info  */
+#additional-button {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 10;
+}
+#additional-display {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    padding: 1rem;
+    padding-right: 10%;
+    padding-left: 10%;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: rgb(65, 65, 65);
+    z-index: 9;
+    justify-content: space-between;
+    display: none;
+}
+#date-container,
+#week-container {
+    display: flex;
+    flex-direction: column;
+}
+#date-container h1,
+#week-container h1 {
+    width: fit-content;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+#date-container p,
+#week-container p {
+    width: fit-content;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+#divider2,
+#divider3,
+#divider4 {
+    display: inline-block;
+    width: 20%;
+    height: 0.5px;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+    background-color: white;
+}
