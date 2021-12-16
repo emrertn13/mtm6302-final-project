@@ -124,7 +124,8 @@ select {
     border-radius: 5%;
     font-family: Arial, Helvetica, sans-serif;
 }
-#divider1 {
+#divider1,
+#divider2 {
     display: inline-block;
     width: 120%;
     height: 0.5px;
@@ -133,14 +134,20 @@ select {
     background-color: white;
 }
 #color-settings,
-#second-settings {
+#second-settings,
+#date-settings {
     display: flex;
 }
 #color-settings h1,
-#second-settings h1 {
+#second-settings h1,
+#date-settings h1 {
     align-self: center;
     vertical-align: center;
     margin-bottom: 0;
+}
+#time-display #for-date {
+    font-size: 1rem;
+    color: red;
 }
 #settings-close {
     margin-top: 5rem;
@@ -156,12 +163,18 @@ select {
     margin: 0 auto;
 }
 #title-text,
-#for-seconds {
+#for-seconds,
+#for-date {
     font-size: 2rem;
     width: fit-content;
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
+}
+#for-seconds {
+    font-size: 2.5rem;
+    opacity: 15%;
+    margin-bottom: 1rem;
 }
 #time-content {
     font-size: 5rem;

@@ -19,13 +19,13 @@ const $secondSettings = document.getElementById('second-settings')
 const $dateContainer = document.getElementById('date-container')
 const $weekContainer = document.getElementById('week-container')
 
-
 const $secondsOptions = document.getElementById('seconds-options')
-
 const $colorOptions = document.getElementById('color-options')
+const $dateOptions = document.getElementById('date-options')
 
 const $timeContent = document.getElementById('time-content')
 const $forSeconds = document.getElementById('for-seconds')
+const $forDate = document.getElementById('for-date')
 const $fullDate = document.getElementById('full-date')
 const $dayOfWeek = document.getElementById('day-of-week')
 const $fullDateInfo = document.getElementById('full-date-info')
@@ -35,6 +35,15 @@ const $settingsButton = document.getElementById('settings-button')
 const $settingsClose = document.getElementById('settings-close')
 const $additionalButton = document.getElementById('additional-button')
 const $infoClose = document.getElementById('info-close')
+
+const currentDay = new Date()
+const year = currentDay.getFullYear()
+const month = currentDay.getMonth()
+const date = currentDay.getDate()
+
+const ampm = currentDay.getHours()
+const today = year + ":" + month + ":" + date
+console.log(today)
 
 // CODE 
 fetch('https://api.nasa.gov/planetary/apod?api_key=oLqSjn3VbbJDsQVqE8JXRpnjsh2dmaaFDXFjskHN&thumbs=True')
@@ -75,35 +84,43 @@ $colorOptions.addEventListener('change', function() {
     if(parseInt($colorOptions.value) == 1) {
         $timeContent.setAttribute('style', 'color: white')
         $forSeconds.setAttribute('style', 'color: white')
+        $forDate.setAttribute('style', 'color: white')
     }
     if(localStorage.getItem('Selected Color') == 2) {
         $timeContent.setAttribute('style', 'color: green')
         $forSeconds.setAttribute('style', 'color: green')
+        $forDate.setAttribute('style', 'color: green')
     }
     if(localStorage.getItem('Selected Color') == 3) {
         $timeContent.setAttribute('style', 'color: yellow')
         $forSeconds.setAttribute('style', 'color: yellow')
+        $forDate.setAttribute('style', 'color: yellow')
     }
 })
 
 if(localStorage.getItem('Selected Color') == undefined) {
     $timeContent.setAttribute('style', 'color: red')
-    $forSeconds.setAttribute('style', 'color: red')
+    $forDate.setAttribute('style', 'color: red')
 }
 if(localStorage.getItem('Selected Color') == 1) {
     $timeContent.setAttribute('style', 'color: white')
-    $forSeconds.setAttribute('style', 'color: white')
+    $forDate.setAttribute('style', 'color: white')
 }
 if(localStorage.getItem('Selected Color') == 2) {
     $timeContent.setAttribute('style', 'color: green')
-    $forSeconds.setAttribute('style', 'color: green')
+    $forDate.setAttribute('style', 'color: green')
 }
 if(localStorage.getItem('Selected Color') == 3) {
     $timeContent.setAttribute('style', 'color: yellow')
-    $forSeconds.setAttribute('style', 'color: yellow')
+    $forDate.setAttribute('style', 'color: yellow')
 }
 
-
+if(ampm <= 12) {
+    $forSeconds.textContent = "Good Morning"
+}
+else {
+    $forSeconds.textContent = "Good Afternoon"
+}
 
 // RUN 
 setInterval(function() {
@@ -141,19 +158,38 @@ setInterval(function() {
     $secondsOptions.addEventListener('change', function() {
         localStorage.setItem('Seconds', parseInt($secondsOptions.value))
         if(parseInt($secondsOptions.value) == 4) {
-            $forSeconds.textContent = seconds
+            $timeContent.textContent += ":" + seconds
         }
         if(parseInt($secondsOptions.value) == 5) {
-            $forSeconds.textContent = ''
+            $timeContent.textContent = hours + ":" + minutes
         }
     })
     if(localStorage.getItem('Seconds') == undefined) {
-        $forSeconds.textContent = ''
+        $timeContent.textContent = hours + ":" + minutes
     }
     if(localStorage.getItem('Seconds') == 4) {
-        $forSeconds.textContent = seconds
+        $timeContent.textContent += ":" + seconds
     }
     if(localStorage.getItem('Seconds') == 5) {
-        $forSeconds.textContent = ''
+        $timeContent.textContent = hours + ":" + minutes
+    }
+
+    $dateOptions.addEventListener('change', function() {
+        localStorage.setItem('Date', parseInt($dateOptions.value))
+        if(parseInt($dateOptions.value) == 6) {
+            $forDate.textContent = today
+        }
+        if(parseInt($dateOptions.value) == 7) {
+            $forDate.textContent = ''
+        }
+    })
+    if(localStorage.getItem('Date') == undefined) {
+        $forDate.textContent = ''
+    }
+    if(localStorage.getItem('Date') == 6) {
+        $forDate.textContent = today
+    }
+    if(localStorage.getItem('Date') == 7) {
+        $forDate.textContent = ''
     }
 })
