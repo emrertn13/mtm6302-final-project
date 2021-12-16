@@ -49,6 +49,10 @@ table {
 
 
 /* Custom CSS */
+body {
+    background-color: #414141;
+}
+
 button,
 select {
     padding: 0.5rem;
@@ -120,22 +124,6 @@ select {
     border-radius: 5%;
     font-family: Arial, Helvetica, sans-serif;
 }
-#flex-look {
-    display: flex;
-    width: fit-content;
-    margin-left: 0;
-}
-#flex-look input {
-    margin: 0;
-    margin-right: 0.2rem;
-    align-self: center;
-}
-#flex-look label {
-    margin-right: 1.5rem;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.7rem;
-}
 #divider1 {
     display: inline-block;
     width: 120%;
@@ -144,13 +132,18 @@ select {
     margin-bottom: 1rem;
     background-color: white;
 }
-#color-settings {
+#color-settings,
+#second-settings {
     display: flex;
 }
-#color-settings h1 {
+#color-settings h1,
+#second-settings h1 {
     align-self: center;
     vertical-align: center;
     margin-bottom: 0;
+}
+#settings-close {
+    margin-top: 5rem;
 }
 
 /* --clock display  */
@@ -162,7 +155,8 @@ select {
     top: 10rem;
     margin: 0 auto;
 }
-#title-text {
+#title-text,
+#for-seconds {
     font-size: 2rem;
     width: fit-content;
     margin: 0 auto;
@@ -182,17 +176,17 @@ select {
     position: fixed;
     left: 1rem;
     bottom: 1rem;
-    z-index: 10;
+    z-index: 3;
 }
 #additional-display {
     display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 4;
+    z-index: 2;
     padding: 1rem;
-    padding-right: 10%;
-    padding-left: 10%;
+    padding-right: 5%;
+    padding-left: 5%;
     box-sizing: border-box;
     width: 100%;
     background-color: rgb(65, 65, 65);
@@ -207,7 +201,7 @@ select {
 }
 #date-container h1,
 #week-container h1 {
-    width: fit-content;
+    width: 100%;
     font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
@@ -216,20 +210,41 @@ select {
 }
 #date-container p,
 #week-container p {
-    width: fit-content;
+    width: 100%;
     font-size: 1.5rem;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     color: white;
 }
-#divider2,
-#divider3,
-#divider4 {
-    display: inline-block;
-    width: 20%;
-    height: 0.5px;
-    margin-top: 2.2rem;
-    margin-bottom: 1rem;
-    background-color: white;
+#copyright {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    position: absolute;
+    right: 5%;
+    bottom: 5rem;
+}
+
+
+/* -breakpoints */
+@media screen and (max-width: 750px) {
+    #background-img {
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        /* this line of code above was taken from url:https://getcssscan.com/css-box-shadow-examples */
+    }
+}
+@media screen and (max-width: 450px) {
+    #copyright {
+        position: relative;
+        bottom: 15rem;
+    }
+}
+@media screen and (max-width: 350px) {
+    #copyright {
+        position: relative;
+        bottom: 15rem;
+        margin-left: 5%;
+    }
 }

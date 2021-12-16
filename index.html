@@ -15,41 +15,42 @@
             <div id="color-settings">
                 <h1>Color</h1>
                 <select name="colors" id="color-options">
-                    <option value="white" id="color-white">White</option>
-                    <option value="green" id="color-green">Green</option>
-                    <option value="yellow" id="color-yellow">Yellow</option>
+                    <option value="default-value">Select Color</option>
+                    <option value="1">White</option>
+                    <option value="2">Green</option>
+                    <option value="3">Yellow</option>
                 </select>
             </div>
             <div id="divider1"></div>
             <div id="second-settings">
-                <h1>Display Seconds</h1>
-                <div id="flex-look">
-                    <input type="radio" name="radiobutton" id="turn-on" value="on" checked>
-                    <label>On</label>
-                    <input type="radio" name="radiobutton" id="turn-off" value="off">
-                    <label>Off</label>
-                </div>
+                <h1>Seconds</h1>
+                <select name="seconds" id="seconds-options">
+                    <option value="default-value">Switch</option>
+                    <option value="4">On</option>
+                    <option value="5">Off</option>
+                </select>
             </div>
+            <button id="settings-close">Close</button>
         </div>
 
         <div id="time-display">
             <h1 id="title-text">Curret Time:</h1>
             <h1 id="time-content">10:20</h1>
+            <h1 id="for-seconds"></h1>
         </div>
 
         <button id="additional-button">More Information</button>
         <div id="additional-display">
             <div id="date-container">
-                <h1 id="full-date">Date</h1>
+                <h1 id="full-date">Exact Time</h1>
                 <p id="full-date-info">12/15/2021</p>
             </div>
-            <div id="divider2"></div>
-            <div id="divider3"></div>
-            <div id="divider4"></div>
             <div id="week-container">
                 <h1 id="day-of-week">Day</h1>
                 <p id="day-week-info">Wednesday</p>
             </div>
+            <button id="info-close">Close</button>
+            <p id="copyright">Final Assignment for Web Development<br> &copy; Emir Erten - 2021 Fall Semestr</p>
         </div>
     </div>
 
