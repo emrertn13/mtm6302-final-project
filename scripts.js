@@ -36,15 +36,6 @@ const $settingsClose = document.getElementById('settings-close')
 const $additionalButton = document.getElementById('additional-button')
 const $infoClose = document.getElementById('info-close')
 
-const currentDay = new Date()
-const year = currentDay.getFullYear()
-const month = currentDay.getMonth()
-const date = currentDay.getDate()
-
-const ampm = currentDay.getHours()
-const today = year + ":" + month + ":" + date
-console.log(today)
-
 // CODE 
 fetch('https://api.nasa.gov/planetary/apod?api_key=oLqSjn3VbbJDsQVqE8JXRpnjsh2dmaaFDXFjskHN&thumbs=True')
     .then(function(response) {
@@ -112,13 +103,6 @@ if(localStorage.getItem('Selected Color') == 3) {
     $forDate.setAttribute('style', 'color: yellow')
 }
 
-if(ampm <= 12) {
-    $forSeconds.textContent = "Good Morning"
-}
-else {
-    $forSeconds.textContent = "Good Afternoon"
-}
-
 // RUN 
 setInterval(function() {
     const currentTime = new Date()
@@ -128,30 +112,23 @@ setInterval(function() {
     const miliseconds = currentTime.getMilliseconds()
     const day = currentTime.getDay()
 
-    $timeContent.textContent = hours + ":" + minutes
-    $fullDateInfo.textContent = hours + ":" + minutes + ":" + seconds + ":" + miliseconds
-    if(day === 0) {
-        $dayOfWeekInfo.textContent = "Sunday"
+    const currentDay = new Date()
+    const year = currentDay.getFullYear()
+    const month = currentDay.getMonth()
+    const date = currentDay.getDate()
+
+    const ampm = currentDay.getHours()
+    const today = year + ":" + month + ":" + date
+    
+    if(ampm <= 12) {
+        $forSeconds.textContent = "Good Morning"
     }
-    if(day === 1) {
-        $dayOfWeekInfo.textContent = "Monday"
-    }
-    if(day === 2) {
-        $dayOfWeekInfo.textContent = "Tuesday"
-    }
-    if(day === 3) {
-        $dayOfWeekInfo.textContent = "Wednesday"
-    }
-    if(day === 4) {
-        $dayOfWeekInfo.textContent = "Thursday"
-    }
-    if(day === 5) {
-        $dayOfWeekInfo.textContent = "Friday"
-    }
-    if(day === 6) {
-        $dayOfWeekInfo.textContent = "Saturday"
+    else {
+        $forSeconds.textContent = "Good Afternoon"
     }
 
+    $timeContent.textContent = hours + ":" + minutes
+    $fullDateInfo.textContent = hours + ":" + minutes + ":" + seconds + ":" + miliseconds
     if(day === 0) {
         $dayOfWeekInfo.textContent = "Sunday"
     }
