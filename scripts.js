@@ -83,17 +83,14 @@ $colorOptions.addEventListener('change', function() {
     localStorage.setItem('Selected Color', parseInt($colorOptions.value))
     if(parseInt($colorOptions.value) == 1) {
         $timeContent.setAttribute('style', 'color: white')
-        $forSeconds.setAttribute('style', 'color: white')
         $forDate.setAttribute('style', 'color: white')
     }
     if(localStorage.getItem('Selected Color') == 2) {
         $timeContent.setAttribute('style', 'color: green')
-        $forSeconds.setAttribute('style', 'color: green')
         $forDate.setAttribute('style', 'color: green')
     }
     if(localStorage.getItem('Selected Color') == 3) {
         $timeContent.setAttribute('style', 'color: yellow')
-        $forSeconds.setAttribute('style', 'color: yellow')
         $forDate.setAttribute('style', 'color: yellow')
     }
 })
@@ -133,6 +130,28 @@ setInterval(function() {
 
     $timeContent.textContent = hours + ":" + minutes
     $fullDateInfo.textContent = hours + ":" + minutes + ":" + seconds + ":" + miliseconds
+    if(day === 0) {
+        $dayOfWeekInfo.textContent = "Sunday"
+    }
+    if(day === 1) {
+        $dayOfWeekInfo.textContent = "Monday"
+    }
+    if(day === 2) {
+        $dayOfWeekInfo.textContent = "Tuesday"
+    }
+    if(day === 3) {
+        $dayOfWeekInfo.textContent = "Wednesday"
+    }
+    if(day === 4) {
+        $dayOfWeekInfo.textContent = "Thursday"
+    }
+    if(day === 5) {
+        $dayOfWeekInfo.textContent = "Friday"
+    }
+    if(day === 6) {
+        $dayOfWeekInfo.textContent = "Saturday"
+    }
+
     if(day === 0) {
         $dayOfWeekInfo.textContent = "Sunday"
     }
